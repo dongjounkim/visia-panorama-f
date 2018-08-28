@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'Blossom';
+  src: url('./../../assets/fonts/Blossom.woff2') format('woff2'),
+       url('./../../assets/fonts/Blossom.woff') format('woff'),
+       url('./../../assets/fonts/Blossom.ttf') format('ttf'),
+       url('./../../assets/fonts/Blossom.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@import '../../assets/styles/modules/base';
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, #root, main {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: $raleway;
+  font-size: $base-font-size;
+  font-weight: $regular;
+  font-style: $normal;
+  line-height: $base-line-height;
+  letter-spacing: $base-letter-spacing;
+  text-align: justify;
+  white-space: normal;
+  color: $black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $playfair;
+  font-weight: $regular;
+  text-transform: lowercase;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+main {
+  background-color: $white;
+
+  &.index-view {
+    height: 100vh;
+
+    .section {
+      overflow-x: scroll;
+      align-items: flex-start;
+      padding: 18vh 0;
+    }
+  }
+
+  .section {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+
+    .content {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-around;
+      align-items: stretch;
+      flex: 1;
+
+      section {
+        padding: 20px;
+      }
+    }
+  }
+  
+}

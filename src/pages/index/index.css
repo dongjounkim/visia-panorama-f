@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'Blossom';
+  src: url("./../../assets/fonts/Blossom.woff2") format("woff2"), url("./../../assets/fonts/Blossom.woff") format("woff"), url("./../../assets/fonts/Blossom.ttf") format("ttf"), url("./../../assets/fonts/Blossom.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body, #root, main {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  text-align: justify;
+  white-space: normal;
+  color: #231e1a; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  text-transform: lowercase; }
+
+button {
+  background: none;
+  border: none; }
+
+main {
+  background-color: #f7f6f4; }
+  main.index-view {
+    height: 100vh; }
+    main.index-view .section {
+      overflow-x: scroll;
+      align-items: flex-start;
+      padding: 18vh 0; }
+  main .section {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px; }
+    main .section .content {
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-around;
+      align-items: stretch;
+      flex: 1; }
+      main .section .content section {
+        padding: 20px; }

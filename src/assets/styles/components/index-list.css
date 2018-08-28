@@ -1,0 +1,25 @@
+ul {
+  list-style-type: none; }
+  ul.index-list--hs {
+    height: 64vh;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    overflow-x: visible;
+    padding: 0 30px; }
+    ul.index-list--hs li {
+      width: 300px;
+      height: 30%;
+      margin: 0 20px;
+      display: flex;
+      justify-content: center; }
+      ul.index-list--hs li:nth-child(2) {
+        margin-top: 30px;
+        margin-bottom: 30px; }
+    ul.index-list--hs div.col {
+      height: 100%;
+      display: flex;
+      flex-direction: column; }

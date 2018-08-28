@@ -1,0 +1,89 @@
+@charset "UTF-8";
+.header {
+  width: 100%;
+  padding: 30px 0 40px 50px; }
+  .header h1 {
+    text-align: left; }
+  .header--2 .header__subtitle, .header--3 .header__subtitle, .header--4 .header__subtitle {
+    position: relative;
+    width: 70%;
+    font-size: 1.6rem;
+    margin: 5px 50px;
+    padding: 5px;
+    background-color: #f7f6f4;
+    border: 0.5px solid #7e8b96; }
+    .header--2 .header__subtitle::after, .header--3 .header__subtitle::after, .header--4 .header__subtitle::after {
+      content: '“';
+      display: block;
+      position: absolute;
+      top: -45px;
+      left: -40px;
+      width: 5rem;
+      height: 5rem;
+      font-family: "Playfair Display", serif;
+      font-size: 7rem;
+      color: #f1dfd1; }
+    .header--2 .header__subtitle::before, .header--3 .header__subtitle::before, .header--4 .header__subtitle::before {
+      content: '”';
+      display: block;
+      position: absolute;
+      bottom: -20px;
+      right: -50px;
+      width: 5rem;
+      height: 5rem;
+      font-family: "Raleway", sans-serif;
+      font-weight: 700;
+      font-size: 7rem;
+      color: #485461; }
+    .header--2 .header__subtitle p, .header--3 .header__subtitle p, .header--4 .header__subtitle p {
+      margin: 0;
+      padding: 0; }
+  .header--1 {
+    background-image: url("../../images/header--bg.svg");
+    background-size: 110%;
+    background-repeat: no-repeat;
+    background-position: center bottom; }
+    .header--1.index-view {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 16vh; }
+    .header--1 h1 {
+      letter-spacing: 0.8px;
+      font-size: 4rem; }
+    .header--1 .header__subtitle {
+      display: inline-block;
+      position: relative;
+      z-index: 0;
+      font-style: italic;
+      letter-spacing: 0.9px;
+      font-size: 4rem;
+      color: #f7f6f4; }
+      .header--1 .header__subtitle::after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 70%;
+        background-color: #231e1a; }
+  .header--2 {
+    height: 100vh;
+    display: flex;
+    overflow: hidden; }
+    .header--2 h2 {
+      letter-spacing: 0.8px;
+      font-size: 4rem; }
+  .header--3 h2 {
+    letter-spacing: 0.6px;
+    font-size: 3rem; }
+  .header--4 {
+    padding: 40px; }
+    .header--4 h2 {
+      letter-spacing: 0.8px;
+      font-size: 4rem; }
+      .header--4 h2 span {
+        font-style: italic; }

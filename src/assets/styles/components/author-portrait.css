@@ -1,0 +1,39 @@
+.author-portrait {
+  width: 40%;
+  height: 600px;
+  padding: 50px;
+  overflow: hidden; }
+  .author-portrait figure {
+    width: 100%;
+    height: 100%; }
+  .author-portrait a {
+    display: block;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center; }
+    .author-portrait a::before, .author-portrait a::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-repeat: no-repeat;
+      background-position: center;
+      pointer-event: none; }
+    .author-portrait a::before {
+      z-index: 2;
+      background-image: url("../../images/portrait-frame--1.png");
+      background-size: auto 100%; }
+    .author-portrait a::after {
+      z-index: 3;
+      background-image: url("../../images/portrait-frame--2.png");
+      background-size: auto 66%; }
+    .author-portrait a img {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      width: auto; }

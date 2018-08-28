@@ -1,0 +1,35 @@
+@import '../modules/base';
+
+$base-class: wordcloud;
+$weights: $light $regular $medium $semi-bold $bold $x-bold $xx-bold;
+
+.#{$base-class} {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 40%;
+    height: 600px;
+    padding: 60px 20px !important;
+    text-align: center;
+    word-break: break-word;
+    transform: rotate(2.2deg);
+    line-height: $base-line-height*0.9;
+
+    &__word{
+        color: $black;
+        text-decoration: none;
+        transition: all ease 0.3s;
+
+        &:hover {
+            color: $dBrown;
+        }
+
+        @for $level from 1 through 7 {
+            &--#{$level} {
+                font-size: $base-font-size * 1.2 * (1.2 + 0.12 * ($level - 1));
+                font-weight: nth($weights, $level);
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,54 @@
+@import '../modules/base';
+
+$base-class: chart;
+
+.#{$base-class}  {
+    position: relative;
+    width: 50%;
+    height: 600px;
+    background-image: url('../../images/decor--1.svg');
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+    transform: translateX(-10px);
+
+    div {
+        background-color: transparentize($white, 0.6);
+    }
+
+    &__shuffleBtn {
+        position: absolute;
+        top: 20%;
+        left: 90%;
+        width: 100px;
+        height: 100px;
+        background-image: url('../../images/blob--1.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        background-color: transparent;
+        border: none;
+    }
+
+    &__switch-modeBtns {
+        position: absolute;
+        bottom: 20%;
+        right: -6%;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            font-family: $raleway;
+            font-size: $base-font-size;
+        }
+    }
+
+
+}
