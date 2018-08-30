@@ -7,6 +7,8 @@ import Header from '../../../../components/header';
 import AuthorPortrait from '../../../../components/author-portrait';
 import AuthorBio from '../../../../components/author-bio';
 import IndexList from '../../../../components/index-list';
+import Slider from '../../../../components/slider';
+import Menu from '../../../../components/menu';
 
 class AuthorContent extends Component {
 
@@ -85,24 +87,25 @@ class AuthorContent extends Component {
     console.log(author);
     return (
       <main>
+        <Menu />
         <section className="section">
-          <Header level={2} title={'L\'héroïne...'} subtitle={''} />
-          <div className='content'>
+          {/* <Header level={2} title={'L\'héroïne...'} subtitle={''} /> */}
+          <div className='content' style={{width: 'calc(100% + 40px)', marginTop: '-20px', height: '100vh'}}>
             <AuthorPortrait pseudonym={author.pseudonym} img={author.img} />
-            <AuthorBio />
+            <AuthorBio author={author} />
           </div>
         </section>
 
         <section className="section">
           <Header level={3} title={`...les aventures auxquelles elle a pris part...`} subtitle={`Découvrez les jeux de données concernant ${author.pseudonym}.`} />
-          <div className='content'>
-            titititi
+          <div className='content' style={{padding: '30px 0', width: 'calc(100% + 40px)'}}> 
+           <Slider data={author.datasets} active={0} />
           </div>
         </section>
 
         <section className="section">
           <Header level={3} title={`...et les histoires auxquelles elle a donné vie.`} subtitle={`Plongez aussi dans ses œuvres de merveilles.`} />
-          <div className='content'>
+          <div className='content' style={{overflowX: 'scroll'}}>
             <IndexList dataType='authorWorks' data={author.works} />
           </div>
         </section>

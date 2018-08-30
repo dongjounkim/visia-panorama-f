@@ -1,18 +1,176 @@
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotateY(0) rotateX(0); }
+  50% {
+    transform: translateY(-10px) rotateY(5deg) rotateX(-5deg); }
+  100% {
+    transform: translateY(0px) rotateY(0) rotateX(0); } }
+
 li {
   transform-style: preserve-3d;
   animation: float 6s ease-in-out infinite;
   width: 500px;
-  height: 50%; }
+  height: 50%;
+  perspective: 1800px; }
+
+.index-list--hs-between li {
+  position: relative;
+  top: 0;
+  transition: top ease 1.2s; }
+  .index-list--hs-between li:hover ~ li {
+    top: 30px; }
 
 /*
 	1. container
 */
 .book2 {
   position: relative;
-  width: 150px;
-  height: 100%;
-  perspective: 1000px;
+  width: 300px;
+  height: 400px;
+  perspective: 1800px;
+  transform-origin: center top;
   transform-style: preserve-3d;
-  transform: translateX(0) scale(0.88);
-  transition: transform ease 0.9s;
-  box-shadow: -7px 15px 26px -8px rgba(0, 0, 0, 0.5); }
+  transform: scale(0.4);
+  transition: transform ease 0.9s; }
+  .book2:hover {
+    transform: rotate3d(0, 1, 0, 20deg) translateY(-10px) scale(0.6); }
+    .book2:hover .book2__front__cover img {
+      opacity: 0; }
+    .book2:hover .book2__front__cover p {
+      opacity: 1; }
+  .book2 > div,
+  .book2__front > div {
+    display: block;
+    position: absolute; }
+  .book2__front, .book2__back,
+  .book2__front > div {
+    width: 300px;
+    height: 400px; }
+  .book2__left, .book2__right {
+    width: 40px;
+    left: -20px; }
+  .book2__top, .book2__bottom {
+    width: 295px;
+    height: 40px;
+    top: -15px;
+    backface-visibility: hidden; }
+  .book2__front {
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transition: transform .5s;
+    transform: translate3d(0, 0, 20px);
+    z-index: 10; }
+    .book2__front > div {
+      backface-visibility: hidden;
+      transform-style: preserve-3d; }
+    .book2__front__cover-back {
+      background-color: #000;
+      transform: rotate3d(0, 1, 0, -180deg); }
+  .book2__back {
+    transform: rotate3d(0, 1, 0, -180deg) translate3d(0, 0, 20px);
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 3px 0 0 3px; }
+  .book2__right {
+    height: 390px;
+    top: 5px;
+    transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, 295px);
+    backface-visibility: hidden; }
+  .book2__left {
+    height: 400px;
+    transform: rotate3d(0, 1, 0, -90deg); }
+  .book2__top {
+    transform: rotate3d(1, 0, 0, 90deg); }
+  .book2__bottom {
+    -webkit-transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 390px);
+    -moz-transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 390px);
+    transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, 390px); }
+
+/* Main colors and content */
+.book2__right, .book2__top, .book2__bottom {
+  background-color: #f7f6f4; }
+
+.book2__front__cover:after, .book2__back:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  bottom: 0;
+  width: 3px;
+  background: rgba(0, 0, 0, 0.06);
+  box-shadow: 1px 0 5px rgba(255, 255, 255, 0.5); }
+
+.book2__front > div, .book2__back, .book2__left, .book2__front:after {
+  background-color: #f1dfd1;
+  background-image: url("../../images/paper.jpg");
+  background-repeat: no-repeat;
+  background-position: 100% 95%;
+  background-blend-mode: color-burn; }
+
+.book2__front > div {
+  border-radius: 0 3px 3px 0;
+  box-shadow: inset 10px 1px 20px rgba(0, 0, 0, 0.1); }
+
+.book2__front:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: -1px;
+  width: 1px; }
+
+.book2__front__cover {
+  display: flex !important;
+  justify-content: center;
+  align-items: center; }
+  .book2__front__cover img {
+    height: 90%;
+    width: 80%;
+    mix-blend-mode: multiply;
+    filter: sepia(0.35) contrast(0.8) brightness(1.25) saturate(0.6);
+    border: 2px solid #9b9b9b;
+    transition: opacity ease-in-out 0.6s;
+    opacity: 1; }
+    .book2__front__cover img::before {
+      background: rgba(229, 240, 128, 0.5);
+      content: "";
+      mix-blend-mode: darken; }
+  .book2__front__cover p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 90%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+    transition: opacity ease-in-out 0.6s;
+    opacity: 0;
+    background-image: url("../../images/book--fr.svg");
+    background-repeat: no-repeat;
+    background-size: 95% auto;
+    background-position: center; }
+    .book2__front__cover p a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #731800;
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-style: italic;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      background-image: url("../../images/book--fr2.svg");
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      background-position: center;
+      mix-blend-mode: multiply;
+      padding: 20px; }
+
+.book2__back:after {
+  left: auto;
+  right: 10px; }
+
+.book2__left {
+  filter: brightness(95%); }

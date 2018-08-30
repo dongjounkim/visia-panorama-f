@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { TransitionGroup, Transition } from 'react-transition-group';
+import posed from 'react'
 import anime from 'animejs';
 import ToolbarOptsElement from './toolbar-opts-element';
 import Utils from '../utils/utils';

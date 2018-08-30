@@ -2,11 +2,30 @@
 
 $base-class: book2;
 
+$w: 300px;
+$h: 400px; 
+
 li {
     transform-style: preserve-3d;
     animation: float 6s ease-in-out infinite;
     width: 500px;
     height: 50%;
+	perspective: 1800px;
+}
+
+.index-list--hs-between {
+	li {
+		position: relative;
+		top: 0;
+		transition: top ease 1.2s;
+		
+
+		&:hover {
+			& ~ li {
+				top: 30px;
+			}
+		}
+	}
 }
 
 /*
@@ -14,11 +33,230 @@ li {
 */
 .#{$base-class} {
     position: relative;
-    width: 150px;
-    height: 100%;
-    perspective: 1000px;
+    width: $w;
+    height: $h;
+	perspective: 1800px;
+	transform-origin: center top;
     transform-style: preserve-3d;
-    transform: translateX(0) scale(0.88);
+    transform:  scale(0.4);
     transition: transform ease 0.9s;
-    box-shadow: -7px 15px 26px -8px rgba(0, 0, 0, 0.5);
+	// box-shadow: -7px 15px 26px -14px rgba(0, 0, 0, 0.5);
+	
+	&:hover {
+		transform: rotate3d(0,1,0,20deg) translateY(-10px) scale(0.6);
+
+		.#{$base-class}__front__cover {
+			img {
+				opacity: 0;
+			}
+	
+			p {
+				opacity: 1;
+			}
+		}
+	}
+
+	& > div,
+	&__front > div {
+		display: block;
+		position: absolute;
+	}
+
+	&__front,
+	&__back,
+	&__front > div {
+		width: $w;
+		height: $h;
+	}
+
+	&__left,
+	&__right {
+		width: 40px;
+		left: -20px;
+	}
+
+	&__top,
+	&__bottom {
+		width: $w - 5;
+		height: 40px;
+		top: -15px;
+		backface-visibility: hidden;
+	}
+
+	&__front {
+		transform-style: preserve-3d;
+		transform-origin: 0% 50%;
+		transition: transform .5s;
+		transform: translate3d(0,0,20px);
+		z-index: 10;
+
+		& > div {
+			backface-visibility: hidden;
+			transform-style: preserve-3d;
+		}
+
+		&__cover {
+			&-back {
+				background-color: #000;
+				transform: rotate3d(0,1,0,-180deg);
+			}
+		}
+	}
+
+	&__back {
+		transform: rotate3d(0,1,0,-180deg) translate3d(0,0,20px);
+		box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+		border-radius: 3px 0 0 3px;
+	}
+
+	&__right {
+		height: $h - 10;
+		top: 5px;
+		transform: rotate3d(0,1,0,90deg) translate3d(0,0,295px);
+		backface-visibility: hidden;
+	}
+
+	&__left {
+		height: $h;
+		transform: rotate3d(0,1,0,-90deg);
+	}
+
+	&__top {
+		transform: rotate3d(1,0,0,90deg);
+	}
+	
+	&__bottom {
+		-webkit-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
+		-moz-transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
+		transform: rotate3d(1,0,0,-90deg) translate3d(0,0,390px);
+	}
+
 }
+
+/* Main colors and content */
+.#{$base-class} {
+	&__right,
+	&__top,
+	&__bottom {
+		background-color: $white;
+	}
+
+	&__front__cover:after,
+	&__back:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 10px;
+		bottom: 0;
+		width: 3px;
+		background: rgba(0,0,0,0.06);
+		box-shadow: 1px 0 5px rgba(255, 255, 255, 0.5);
+	}
+
+	&__front > div,
+	&__back,
+	&__left,
+	&__front:after {
+		background-color: $skin;
+		background-image: url('../../images/paper.jpg');	
+		background-repeat: no-repeat;
+		background-position: 100% 95%;
+		background-blend-mode: color-burn;
+	}
+
+	&__front {
+		& > div {
+			border-radius: 0 3px 3px 0;
+			box-shadow: inset 10px 1px 20px rgba(0, 0, 0, 0.1);
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 1px;
+			bottom: 1px;
+			left: -1px;
+			width: 1px;
+		}
+
+		&__cover {
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+
+			img {
+				height: 90%;
+				width: 80%;
+				mix-blend-mode: multiply;
+				filter: sepia(.35) contrast(.8) brightness(1.25) saturate(0.6);
+				border: 2px solid desaturate($dBrown, 50%);
+				transition: opacity ease-in-out 0.6s;
+				opacity: 1;
+
+				&::before {
+					background: rgba(229, 240, 128, .5);
+					content: "";
+					mix-blend-mode: darken;
+				}
+			}
+
+
+			p {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				height: 90%;
+				width: 90%;
+				transform: translate(-50%, -50%);
+				transition: opacity ease-in-out 0.6s;
+				opacity: 0;
+				background-image: url('../../images/book--fr.svg');	
+				background-repeat: no-repeat;
+				background-size: 95% auto;
+				background-position: center;
+
+				a {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					text-align: center;
+					color: $dRed;
+					font-family: $playfair;
+					font-size: $base-font-size*1.5;
+					font-weight: $bold;
+					font-style: $italic;
+					text-shadow: 0 -1px 0 rgba(0,0,0,0.1);
+					text-decoration: none;
+					background-image: url('../../images/book--fr2.svg');	
+					background-repeat: no-repeat;
+					background-size: auto 100%;
+					background-position: center;
+					mix-blend-mode: multiply;
+					padding: 20px;
+				}
+			}
+		}
+	}
+
+	&__back {
+		&:after {
+			left: auto;
+			right: 10px;
+		}
+	}
+
+	&__left {
+		filter: brightness(95%);
+	}
+
+}
+
+
+
+
+
+
+
+

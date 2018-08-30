@@ -1,3 +1,11 @@
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotateY(0) rotateX(0); }
+  50% {
+    transform: translateY(-10px) rotateY(5deg) rotateX(-5deg); }
+  100% {
+    transform: translateY(0px) rotateY(0) rotateX(0); } }
+
 ul {
   list-style-type: none; }
   ul.index-list--hs {
@@ -10,6 +18,19 @@ ul {
     flex-direction: row;
     overflow-x: visible;
     padding: 0 30px; }
+    ul.index-list--hs.index-list--hs-alt {
+      height: 70vh;
+      padding: 30px;
+      transform: translateX(-10px); }
+      ul.index-list--hs.index-list--hs-alt li {
+        width: 200px;
+        height: 50%; }
+      ul.index-list--hs.index-list--hs-alt .col:first-child li {
+        margin-left: 0; }
+    ul.index-list--hs.index-list--hs-around {
+      justify-content: space-around; }
+    ul.index-list--hs.index-list--hs-between {
+      justify-content: space-between; }
     ul.index-list--hs li {
       width: 300px;
       height: 30%;
@@ -19,6 +40,30 @@ ul {
       ul.index-list--hs li:nth-child(2) {
         margin-top: 30px;
         margin-bottom: 30px; }
+      ul.index-list--hs li.index-list__default-item {
+        position: relative;
+        top: 15px; }
+        ul.index-list--hs li.index-list__default-item:hover a {
+          color: #cca269;
+          transform: scale(1) translateY(-15px);
+          box-shadow: 0px 10px 60px -10px rgba(35, 30, 26, 0.4); }
+        ul.index-list--hs li.index-list__default-item.disable {
+          pointer-events: none;
+          filter: grayscale(1); }
+        ul.index-list--hs li.index-list__default-item a {
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          padding: 0 20px;
+          font-size: 1.5rem;
+          box-shadow: 0px 0px 50px -10px rgba(35, 30, 26, 0.2);
+          transform: scale(0.9);
+          transition: all ease-in-out 0.9s, font-size ease-in-out 0.5s; }
     ul.index-list--hs div.col {
       height: 100%;
       display: flex;

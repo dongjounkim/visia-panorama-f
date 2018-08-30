@@ -35,7 +35,7 @@ class AuthorIndex extends Component {
           <Menu />
           <Header level={1} title='Vue de détail :' subtitle='les héroines' type={this.props.type} isIndexView={true} />
           <section className='section'>
-          <IndexList type='horizontal-scroll' dataType='authors' data={this.state.authors} />
+            <IndexList type='horizontal-scroll' dataType='authors' data={this.state.authors} />
           </section>
           <Toolbar type={this.props.type} />
       </main>

@@ -4,6 +4,14 @@
   font-weight: normal;
   font-style: normal; }
 
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotateY(0) rotateX(0); }
+  50% {
+    transform: translateY(-10px) rotateY(5deg) rotateX(-5deg); }
+  100% {
+    transform: translateY(0px) rotateY(0) rotateX(0); } }
+
 * {
   margin: 0;
   padding: 0;
@@ -42,6 +50,8 @@ main {
       overflow-x: scroll;
       align-items: flex-start;
       padding: 18vh 0; }
+  main.home-view section {
+    padding: 0; }
   main .section {
     width: 100%;
     min-height: 100vh;
@@ -53,10 +63,12 @@ main {
     padding: 20px; }
     main .section .content {
       width: 100%;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: hidden;
       display: flex;
       justify-content: space-around;
       align-items: stretch;
-      flex: 1; }
+      flex: 1;
+      position: relative; }
       main .section .content section {
         padding: 20px; }

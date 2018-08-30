@@ -21,15 +21,22 @@ class AuthorBio extends Component {
   }
 
   render() {
-    const {author}= this.props;
+    const {author}= this.props,
+          ul = () => <ul>
+          {author.idBnf && <li>{author.idBnf}</li>}
+          {author.idWikidata && <li>{author.idWikidata}</li>}
+        </ul>;
     return  <section className='author-bio'>
-                <p>{author.pseudonym}{` (${author.birth ? author.birth : '?'} - ${author.death ? author.death : '?'}).`}</p>
-                {
+                <h1>{author.pseudonym}</h1>
+                <p>{` (${author.birth ? author.birth : '?'} - ${author.death ? author.death : '?'}).`}</p>
+                {/* {
+                  (author.idBnf || author.idWikidata) && ul()
+                } */}
+                {/* {
                     author.firstName && author.lastName 
                         ? () => <p>Également connue sous le nom de <strong>{`${author.firstName} ${author.lastName}`}</strong></p> 
                         : <div />
-                }
-                
+                } */}
             </section>;
   }
 }

@@ -27,7 +27,7 @@ class CallToAction extends Component {
     return <ul className="action">
             {this.renderCalltoAction()}
             <li key={`call-to-action--add`}>
-              <button>Il est aussi grand temps de proposer votre propre histoire !</button>
+            <a href='mailto:george-2e-texte@gmx.fr'>Proposez-nous vos propres idées !</a> 
             </li>
           </ul>;
   }

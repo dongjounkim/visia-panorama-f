@@ -1,3 +1,11 @@
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotateY(0) rotateX(0); }
+  50% {
+    transform: translateY(-10px) rotateY(5deg) rotateX(-5deg); }
+  100% {
+    transform: translateY(0px) rotateY(0) rotateX(0); } }
+
 .menu {
   --duration: .5s;
   --easing: ease-in-out;
@@ -77,3 +85,7 @@
   .menu.closed footer button {
     transition-delay: 0s;
     transform: scaleY(0.7) scaleX(0.2); }
+  .menu.closed a {
+    pointer-events: none; }
+  .menu.origin a, .menu.origin header {
+    background-color: transparent; }

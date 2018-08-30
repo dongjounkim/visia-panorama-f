@@ -374,17 +374,6 @@ li {
     }
 }
 
-@keyframes float {
-	0% {
-		transform: translateY(0px) rotateY(0) rotateX(0);
-	}
-	50% {
-		transform: translateY(-10px) rotateY(5deg) rotateX(-5deg);
-	}
-	100% {
-		transform: translateY(0px) rotateY(0) rotateX(0);
-	}
-}
 
 
 

@@ -17,6 +17,31 @@ ul {
         padding: 0 30px;
         // overflow-y: hidden;
 
+        &.#{$base-class}--hs-alt {
+            height: 70vh;
+            padding: 30px;
+            transform: translateX(-10px);
+
+            li {
+                width: 200px;
+                height: 50%;
+            }
+            
+            .col:first-child {
+                li {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        &.#{$base-class}--hs-around {
+            justify-content: space-around;
+        }
+
+        &.#{$base-class}--hs-between {
+            justify-content: space-between;
+        }
+
         li {
             width: 300px;
             height: 30%;
@@ -27,6 +52,40 @@ ul {
             &:nth-child(2) {
                 margin-top: 30px;
                 margin-bottom: 30px;
+            }
+
+            &.#{$base-class}__default-item {
+                position: relative;
+                top: 15px;
+
+                &:hover {
+                    a {
+                        color: $dBrown;
+                        transform: scale(1) translateY(-15px);
+                        box-shadow: $card-shadow-hover;
+                    }
+                }
+
+                &.disable {
+                    pointer-events: none;
+                    filter: grayscale(1);
+                }
+
+                a {
+                    width: 100%;
+                    height: 100%;
+                    background-color: #fff;
+                    border-radius: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    padding: 0 20px;
+                    font-size: $base-font-size*1.5;
+                    box-shadow: $card-shadow;
+                    transform: scale(0.9);
+                    transition: all ease-in-out 0.9s, font-size ease-in-out 0.5s;
+                }
             }
         }
 

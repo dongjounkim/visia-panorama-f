@@ -59,6 +59,12 @@ main {
     }
   }
 
+  &.home-view {
+    section {
+      padding: 0;
+    }
+  }
+
   .section {
     width: 100%;
     min-height: 100vh;
@@ -71,11 +77,13 @@ main {
 
     .content {
       width: 100%;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: hidden;
       display: flex;
       justify-content: space-around;
       align-items: stretch;
       flex: 1;
+      position: relative;
 
       section {
         padding: 20px;

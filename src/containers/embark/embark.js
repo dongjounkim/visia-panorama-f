@@ -5,6 +5,7 @@ import Header from '../../components/header';
 import Slider from '../../components/slider';
 import Tabs from '../../components/tabs';
 import Menu from '../../components/menu';
+import SplashScreen from '../../components/splash-screen';
 
 
 class Embark extends Component {
@@ -38,16 +39,18 @@ class Embark extends Component {
   render() {
     console.log(this.state);
     return (
-      <main>
+      <main className='home-view'>
           <Menu />
-          <section className='section'></section>
-          <section className='section' style={{padding: 0}}>
+          <section className='section'>
+            <SplashScreen />
+          </section>
+          <section className='section'>
             <Header level={4} title='Une' 
               subtitle={`Embarquez dans nos aventures, pour découvrir ou redécouvrir les femmes qui se sont distinguées dans la littérature, héroïnes incontournables ou méconnues d'hier et d'aujourd'hui.`} />
             <Slider data={this.state.datasets} active={0} />
           </section>
-          <section className='section' style={{padding: 0}}>
-            <Header level={4} title='Préface'/>
+          <section className='section'>
+            <Header level={4} title='Préface' />
             <Tabs data={this.state.contents} />
           </section>
       </main>

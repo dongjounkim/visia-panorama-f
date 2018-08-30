@@ -27,7 +27,7 @@ class Slider extends Component {
           items = this.props.data,
           sliderItems = [],
           level;
-      console.log(active);
+      console.log(items);
       for (let i = active - 2; i < active + 3; i++) {
           let index = i;
           if (i < 0) {

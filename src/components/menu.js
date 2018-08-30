@@ -4,9 +4,6 @@ import React, { Component } from 'react';
 //Styles
 import '../assets/styles/components/menu.css';
 
-const defaultFontSizeMapper = word => word.value;
-
-
 class Menu extends Component {
 
   ref = React.createRef();
@@ -26,6 +23,7 @@ class Menu extends Component {
                 i = 1;
             }
             el.setAttribute('data-group', groupNb);
+        el.style.setProperty('--delay-out', '0s');
             i++;
         });
 
@@ -45,10 +43,14 @@ class Menu extends Component {
             node.classList.toggle('closed');
             e.stopPropagation();
         });
+
+        setTimeout(() => {
+            node.classList.contains('origin') && node.classList.remove('origin');
+        }, 400);
   }
 
   render() {
-    return <nav ref={this.ref} className="menu closed">
+    return <nav ref={this.ref} className="menu closed origin">
         <header><span>×</span></header>
         <ul>
             <li className="menu__gritem">

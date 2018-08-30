@@ -94,7 +94,7 @@ class DatasetContent extends Component {
 
         <section className="section">
           <Header level={3} title={'Rejoignez cette belle aventure !'} 
-            subtitle={`Voici quelques idées pour embellir cette aventure${dataset.cat.category ? ` d'${dataset.cat.category}` : ''}, et n'hésitez pas de proposer vos propres idées !`} />
+            subtitle={`Voici quelques idées pour rendre plus paritaire le secteur de ${dataset.cat.category ? `l'${dataset.cat.category}` : 'la littérature'} dans ce jeu de données !`}/>
           <CallToAction actions={dataset.actions} />
         </section>
       </main>
