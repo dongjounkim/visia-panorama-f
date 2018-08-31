@@ -6,6 +6,35 @@
   100% {
     transform: translateY(0px) rotateY(0) rotateX(0); } }
 
+@keyframes pulse {
+  0% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1.3);
+    opacity: 0; }
+  100% {
+    transform: scale(1.3);
+    opacity: 0; } }
+
+@keyframes pulse-2 {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1.3);
+    opacity: 0; } }
+
+@keyframes bounce {
+  0%, 75%, 100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  25% {
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+    transform: translateY(-20px); } }
+
 .menu {
   --duration: .5s;
   --easing: ease-in-out;
@@ -85,7 +114,7 @@
   .menu.closed footer button {
     transition-delay: 0s;
     transform: scaleY(0.7) scaleX(0.2); }
-  .menu.closed a {
+  .menu.closed a, .menu.closed ul {
     pointer-events: none; }
   .menu.origin a, .menu.origin header {
     background-color: transparent; }

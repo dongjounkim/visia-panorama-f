@@ -8,6 +8,8 @@ import Chart from '../../../../components/chart';
 import Header from '../../../../components/header';
 import CallToAction from '../../../../components/call-to-action';
 import Menu from '../../../../components/menu';
+import DatasetOverview from '../../../../components/dataset-overview';
+import LoadingScreen from '../../../../components/loading-screen';
 
 class DatasetContent extends Component {
 
@@ -15,16 +17,20 @@ class DatasetContent extends Component {
     super(props);
 
     this.state = {
-      id: 0,
-      name: '',
-      cat: '',
-      desc: '',
-      begin: '',
-      end: '',
-      data: [],
-      authorsM: [],
-      authorsF: [],
-      actions: [],
+      appOK: false,
+      dataset: {
+        id: 0,
+        name: '',
+        cat: '',
+        comment: '',
+        desc: '',
+        begin: '',
+        end: '',
+        data: [],
+        authorsM: [],
+        authorsF: [],
+        actions: [],
+      }
     }
   }
 
@@ -32,20 +38,24 @@ class DatasetContent extends Component {
     API.datasetsOne(this.props.match.params.id)
        .then(d => {
         this.setState({
-          id: d.dataset_id,
-          name: d.name,
-          cat: d.category,
-          desc: d.description,
-          begin: d.date_begin,
-          end: d.date_end,
-          data: _.values(d.data),
-          authorsM: _.values(d.authorsM), //_.uniqBy(_.values(d.authorsM), 'id_author'),
-          authorsF: _.values(d.authorsF), //_.uniqBy(_.values(d.authorsF), 'id_author'),
-          actions: d.actions
+          dataset: {
+            id: d.dataset_id,
+            name: d.name,
+            cat: d.category,
+            comment: d.comment,
+            desc: d.description,
+            begin: d.date_begin,
+            end: d.date_end,
+            data: _.values(d.data),
+            authorsM: _.values(d.authorsM), //_.uniqBy(_.values(d.authorsM), 'id_author'),
+            authorsF: _.values(d.authorsF), //_.uniqBy(_.values(d.authorsF), 'id_author'),
+            actions: d.actions,
+          },
+          appOK: true
         });
         return new Set(_.map(_.values(d.authorsF), a => a.id_author));
        })
-       .then(authorsF => this.updateAuthorsImg(authorsF))
+      //  .then(authorsF => this.updateAuthorsImg(authorsF))
        .catch(e => console.log(e));
   }  
 
@@ -67,17 +77,20 @@ class DatasetContent extends Component {
   } 
 
   render() {
-    const dataset = this.state;
+    const {dataset, appOK} = this.state;
     console.log(dataset);
     return (
       <main>
+        <LoadingScreen appOK={appOK} />
         <Menu />
-        <section className="section">
-          <Header level={2} title={`${dataset.name}.`} subtitle={dataset.desc} />
+        <section className="section" style={{padding: 0}}>
+          <div className='content'>
+            <DatasetOverview name={dataset.name} desc={dataset.desc} />
+          </div>
         </section>
 
         <section className="section">
-          <Header level={3} title={'La présence de nos héroïnes.'} subtitle={'Phrase percutante ou récap.'} />
+          <Header level={3} title={'La présence de nos héroïnes.'} subtitle={dataset.comment ? dataset.comment : 'Consultez la biographie de chacune des héroïnes figurées en cliquant sur son nom !'} />
           <div className='content'>
             <Chart type='pie' data={dataset.data} authorsF={dataset.authorsF} authorsM={dataset.authorsM}/>
             <Wordcloud authorsF={dataset.authorsF} />

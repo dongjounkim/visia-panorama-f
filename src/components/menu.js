@@ -54,17 +54,17 @@ class Menu extends Component {
         <header><span>×</span></header>
         <ul>
             <li className="menu__gritem">
-                <a href="/">Embarquement</a>
+                <a href="./">Embarquement</a>
                 <ul className="menu__sub">
-                    <li className="menu__item"><a href="/">une.</a></li>
-                    <li className="menu__item"><a href="/">préface.</a></li>
+                    <li className="menu__item"><a href="./">une.</a></li>
+                    <li className="menu__item"><a href="./">préface.</a></li>
                 </ul>
             </li>
             <li className="menu__gritem">
-                <a href="/explore">Exploration</a>
+                <a href="./explore">Exploration</a>
                 <ul className="menu__sub">
-                    <li className="menu__item"><a href="/explore/datasets">aventures.</a></li>
-                    <li className="menu__item"><a href="/explore/authors">héroines.</a></li>
+                    <li className="menu__item"><a href="./explore/datasets">aventures.</a></li>
+                    <li className="menu__item"><a href="./explore/authors">héroines.</a></li>
                 </ul>
             </li>
         </ul>

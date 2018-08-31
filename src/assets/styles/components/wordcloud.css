@@ -6,6 +6,35 @@
   100% {
     transform: translateY(0px) rotateY(0) rotateX(0); } }
 
+@keyframes pulse {
+  0% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1.3);
+    opacity: 0; }
+  100% {
+    transform: scale(1.3);
+    opacity: 0; } }
+
+@keyframes pulse-2 {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1.3);
+    opacity: 0; } }
+
+@keyframes bounce {
+  0%, 75%, 100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  25% {
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+    transform: translateY(-20px); } }
+
 .wordcloud {
   display: flex;
   align-items: center;
@@ -16,7 +45,10 @@
   text-align: center;
   word-break: break-word;
   transform: rotate(2.2deg);
-  line-height: 1.26; }
+  line-height: 1.26;
+  transtion: all ease 0.4s; }
+  .wordcloud__container * {
+    transition: all ease 0.4s; }
   .wordcloud__word {
     color: #231e1a;
     text-decoration: none;

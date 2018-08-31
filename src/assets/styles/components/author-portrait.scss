@@ -8,9 +8,9 @@ $base-class: author-portrait;
     overflow: hidden;
 
     figure {
-        width: 60%;
+        width: 45%;
         height: 60%;
-        margin-top: 16vh;
+        margin-top: 25vh;
         padding-left: 15vw;
         position: relative;
         z-index: 0;
@@ -24,6 +24,8 @@ $base-class: author-portrait;
 
 
         img {
+            display: inline-block;
+            padding: 20px;
             max-width: 100%;
             max-height: 100%;
             box-shadow: 20px 20px 36px rgba(0,0,0,0.2);
@@ -31,6 +33,7 @@ $base-class: author-portrait;
             border-top-color: darken($skin, 20%);
             border-bottom-color: darken($skin, 20%);
             background-color: $white;
+            animation: float 6s infinite ease-in-out;
         }
     }
 }

@@ -6,6 +6,7 @@ import Slider from '../../components/slider';
 import Tabs from '../../components/tabs';
 import Menu from '../../components/menu';
 import SplashScreen from '../../components/splash-screen';
+import LoadingScreen from '../../components/loading-screen';
 
 
 class Embark extends Component {
@@ -15,7 +16,8 @@ class Embark extends Component {
 
     this.state = {
       datasets: [],
-      contents: ['visia', 'panorama']
+      contents: ['panorama', 'visia'],
+      appOK: false
     }
   }
 
@@ -36,13 +38,18 @@ class Embark extends Component {
         .catch(e => console.log(e));
   }
 
+  onSplashScreenRendered = () => {
+    this.setState({appOK: true});
+  }
+
   render() {
     console.log(this.state);
     return (
       <main className='home-view'>
+          <LoadingScreen appOK={this.state.appOK} />
           <Menu />
           <section className='section'>
-            <SplashScreen />
+            <SplashScreen onRendered={this.onSplashScreenRendered} />
           </section>
           <section className='section'>
             <Header level={4} title='Une' 

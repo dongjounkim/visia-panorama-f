@@ -1,0 +1,83 @@
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotateY(0) rotateX(0); }
+  50% {
+    transform: translateY(-10px) rotateY(5deg) rotateX(-5deg); }
+  100% {
+    transform: translateY(0px) rotateY(0) rotateX(0); } }
+
+@keyframes pulse {
+  0% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1.3);
+    opacity: 0; }
+  100% {
+    transform: scale(1.3);
+    opacity: 0; } }
+
+@keyframes pulse-2 {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1.3);
+    opacity: 0; } }
+
+@keyframes bounce {
+  0%, 75%, 100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  25% {
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+    transform: translateY(-20px); } }
+
+.dataset-overview {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right: 50px !important; }
+  .dataset-overview figure {
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    background-image: url("../../images/decor--3.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; }
+  .dataset-overview h1 {
+    position: relative;
+    z-index: 10;
+    font-size: 3.5rem;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    background-color: #f7f6f4;
+    padding: 0 20px;
+    border: thin solid #cca269;
+    max-width: 60%; }
+  .dataset-overview p {
+    position: relative;
+    z-index: 10;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 1.8rem;
+    font-family: "Raleway", sans-serif;
+    letter-spacing: 0.2px;
+    text-align: justify;
+    color: #f7f6f4;
+    width: 60%;
+    background-color: #cca269; }

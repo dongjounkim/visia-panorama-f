@@ -46,7 +46,7 @@ class Chart extends Component {
   }
 
   render() {
-    return <section className="chart">
+    return <section className={`chart chart--${this.props.type}`}>
             {this.buildChart()}
             {/* {
               this.props.type !== 'bubble' && 

@@ -50,6 +50,20 @@ class Utils {
         return Math.random().toString(36).substring(7);
     }
 
+    static generateString2() {
+        let string = this.generateString()+this.generateString()+this.generateString();
+        return this.shuffleString(string);
+    }
+
+    static shuffleString (string){
+        let shuffledString = '';
+        string = string.split('');
+        while (string.length > 0) {
+          shuffledString +=  string.splice(string.length * Math.random() << 0, 1);
+        }
+        return shuffledString;
+    }
+
     static createMarkup(HTMLString) {
         return {__html: HTMLString};
     }

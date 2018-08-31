@@ -25,7 +25,7 @@ class BubbleChart extends Component {
 
             value: 'value',
 
-            colors: 'nivo',
+            colors: theme.colorsRange,
 
             colorBy: 'depth',
 
@@ -153,13 +153,15 @@ class BubbleChart extends Component {
 
      let children = [];
 
+     console.log(rawData);
+
      rawData.filter(d => array.includes(d.author_id_FK)) // (1)
             .forEach(d => { // (2)
                 children.push({
                   name: d.details,
                   color: childrenColor,
                   value: childrenValue,
-                  author: d.author.pseudonym,
+                  author: d.author ? d.author.pseudonym : '',
                   src: d.src
                 });                    
             });

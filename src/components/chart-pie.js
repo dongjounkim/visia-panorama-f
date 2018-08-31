@@ -30,7 +30,7 @@ class PieChart extends Component {
 
             sortByValue: false,
 
-            colors: 'nivo',
+            colors: theme.colorsRange,
 
             colorBy: 'id',
 
@@ -50,9 +50,9 @@ class PieChart extends Component {
 
             radialLabelsLinkDiagonalLength: 16,
 
-            radialLabelsLinkHorizontalLength: 24,
+            radialLabelsLinkHorizontalLength: 30,
 
-            radialLabelsLinkStrokeWidth: 1,
+            radialLabelsLinkStrokeWidth: 5,
 
             radialLabelsLinkColor: 'inherit',
 
@@ -75,7 +75,12 @@ class PieChart extends Component {
                     }
                 },
                 labels: {
-                    textColor: theme.colors.dGray
+                    textColor: theme.colors.dGray,
+                    fontSize: theme.fonts.size
+                },
+                sliceLabel: {
+                    textColor: theme.colors.dGray,
+                    fontSize: theme.fonts.bigSize
                 }
             },
             
@@ -119,6 +124,7 @@ class PieChart extends Component {
                   label: 'Autrices',
                   value: isNaN(percentageF) ? 0 : percentageF,
                   color: theme.colors.dBrown,
+                  fontSize: '50px'
                 },
                 {
                   id: 'Auteurs',

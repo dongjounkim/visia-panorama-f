@@ -6,6 +6,7 @@ import Header from '../../../../components/header';
 import Toolbar from '../../../../components/toolbar';
 import IndexList from '../../../../components/index-list';
 import Menu from '../../../../components/menu';
+import LoadingScreen from '../../../../components/loading-screen';
 
 class DatasetIndex extends Component {
 
@@ -13,6 +14,7 @@ class DatasetIndex extends Component {
     super(props);
 
     this.state = {
+      appOK: false,
       datasets: {
         all: [],
         cats: [],
@@ -40,7 +42,7 @@ class DatasetIndex extends Component {
                         );
         }) 
 
-        this.setState({datasets: _d});
+        this.setState({datasets: _d, appOK: true});
         return(_d);
        })
        .catch(e => console.log(e));
@@ -50,6 +52,7 @@ class DatasetIndex extends Component {
     console.log(this.state);
     return (
       <main className='index-view'>
+          <LoadingScreen appOK={this.state.appOK} />
           <Menu />
           <Header level={1} title='Vue de détail : ' subtitle='les aventures' type={this.props.type} isIndexView={true} />
           <section className='section'>

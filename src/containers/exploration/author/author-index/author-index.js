@@ -5,6 +5,7 @@ import Header from '../../../../components/header';
 import Toolbar from '../../../../components/toolbar';
 import IndexList from '../../../../components/index-list';
 import Menu from '../../../../components/menu';
+import LoadingScreen from '../../../../components/loading-screen';
 
 class AuthorIndex extends Component {
 
@@ -12,6 +13,7 @@ class AuthorIndex extends Component {
     super(props);
 
     this.state = {
+      appOK: false,
       authors: [],
     }
   }
@@ -23,7 +25,7 @@ class AuthorIndex extends Component {
   componentDidMount() {
     API.authorsIndex()
        .then(d => {
-        this.setState({authors: d})
+        this.setState({authors: d, appOK: true})
        })
        .catch(e => console.log(e));
   }  
@@ -32,6 +34,7 @@ class AuthorIndex extends Component {
     console.log(this.state);
     return (
       <main className='index-view'>
+          <LoadingScreen appOK={this.state.appOK} />
           <Menu />
           <Header level={1} title='Vue de détail :' subtitle='les héroines' type={this.props.type} isIndexView={true} />
           <section className='section'>

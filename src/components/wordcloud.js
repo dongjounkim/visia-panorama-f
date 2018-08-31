@@ -20,6 +20,8 @@ class Wordcloud extends Component {
 
   constructor(props) {
     super(props);
+
+    this.ref = React.createRef();
   
     this.state = {
       wordDescVisible: false,
@@ -30,13 +32,37 @@ class Wordcloud extends Component {
     words: [],
   };
 
+  componentDidMount() {
+  }
+
+  //calibrate wordlcloud
+  componentDidUpdate() {
+    let node = this.ref.current,
+        container = node.querySelector('.wordcloud__container'),
+        nodeHeight = node.clientHeight,
+        containerHeight = node.scrollHeight;
+    if (containerHeight > nodeHeight) {
+      let children = Array.from(container.children);
+      const proportion = containerHeight/nodeHeight,
+            lineHeight = window.getComputedStyle(node, null).getPropertyValue('line-height'),
+            newLineHeight = parseFloat(lineHeight)/proportion-6;
+      node.style.lineHeight = `${newLineHeight}px`;
+      node.style.top = '20px';
+      children.forEach(c => {
+        const fontSize = window.getComputedStyle(c, null).getPropertyValue('font-size');
+        c.style.fontSize = `calc(${fontSize} / ${proportion})`;
+      })
+    }
+  }
+
   //Render the wordcloud (list of words, sized and weighted proportionally).
   prepareWordCloud = () => {
     const authors = this.prepareData(); //actual word styling here
     let wordCloud = [];
 
-    authors.forEach(a => {
+    authors.forEach((a, i) => {
       wordCloud.push(<Word key={`author--${a.id_author}`} author={a} />);
+      i !== authors.length-1 && wordCloud.push(<span key={`word--${a.id_author}`}>{', '}</span>);
     })
 
     return wordCloud;
@@ -79,9 +105,10 @@ class Wordcloud extends Component {
   }
 
   render() {
-    return <section className='wordcloud wordcloud__word--4'>
-            <div>
-              {Utils.intersperse(this.prepareWordCloud(), ', ')}.
+    return <section ref={this.ref} className='wordcloud wordcloud__word--4'>
+            <div className='wordcloud__container'>
+              {this.prepareWordCloud()}
+              <span>.</span>
             </div>
             <WordDesc show={this.state.wordDescVisible} ></WordDesc>
           </section>;

@@ -44,10 +44,16 @@ h1, h2, h3, h4, h5, h6 {
 button {
   background: none;
   border: none;
+  outline: none;
 }
 
 main {
   background-color: $white;
+
+  &.loading-view {
+    height: 100vh;
+    overflow: hidden;
+  }
 
   &.index-view {
     height: 100vh;

@@ -1,14 +1,26 @@
 import React from 'react';
 import SVG from 'react-inlinesvg';
 import '../assets/styles/components/scribble.css'; 
-import scribbleSVG from '../assets/images/scribble.svg';
+import scribbleSVG1 from '../assets/images/scribble--1.svg';
+import scribbleSVG2 from '../assets/images/scribble--2.svg';
 
 const Scribble = (props) => {
-    const {data, dataType} = props;
-    return  <div className='scribble'>
-                <SVG src={scribbleSVG} />
-                <SVG src={scribbleSVG} />
-            </div>;      
+    const {type} = props;
+    switch (type) {
+        case 1:
+            return  <div className='scribble scribble--1'>
+                <SVG src={scribbleSVG1} />
+                <SVG src={scribbleSVG1} />
+            </div>;    
+            break;
+        case 2:
+            return  <div className='scribble scribble--2'>
+                <SVG src={scribbleSVG2} />
+                {/* <SVG src={scribbleSVG2} /> */}
+            </div>; 
+        default:
+            break;
+    }  
 };
 
 export default Scribble;

@@ -11,16 +11,15 @@ import Embark from '../containers/embark/embark';
 class App extends Component {
   render() {
     return (
-      // basename={'/visia/panorama/code/sandbox/front-office/build/'}
-      <Router>
+      <Router basename={'/histoires-autrices'}>
           <Switch>
-            <Route exact path={`${process.env.PUBLIC_URL}/`} component={Embark} />
+            <Route path={`/`} component={Embark} />
 
-            <Route exact path={`${process.env.PUBLIC_URL}/explore/datasets`} component={DatasetIndex} />
-            <Route path={`${process.env.PUBLIC_URL}/explore/datasets/:id`} component={DatasetContent} />
+            <Route exact path={`/explore/datasets`} component={DatasetIndex} />
+          <Route path={`/explore/datasets/:id`} component={DatasetContent} />
 
-            <Route exact path={`${process.env.PUBLIC_URL}/explore/authors`} component={AuthorIndex} />
-            <Route path={`${process.env.PUBLIC_URL}/explore/authors/:id`} component={AuthorContent} />
+            <Route exact path={`/explore/authors`} component={AuthorIndex} />
+            <Route path={`/explore/authors/:id`} component={AuthorContent} />
           </Switch>
       </Router>
     );

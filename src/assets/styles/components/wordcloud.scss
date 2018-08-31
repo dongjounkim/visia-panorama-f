@@ -14,6 +14,13 @@ $weights: $light $regular $medium $semi-bold $bold $x-bold $xx-bold;
     word-break: break-word;
     transform: rotate(2.2deg);
     line-height: $base-line-height*0.9;
+    transtion: all ease 0.4s;
+
+    &__container {
+        * {
+            transition: all ease 0.4s;
+        }
+    }
 
     &__word{
         color: $black;
@@ -32,4 +39,16 @@ $weights: $light $regular $medium $semi-bold $bold $x-bold $xx-bold;
         }
         
     }
+
+    // &::before {
+    //     content: '';
+    //     display: block;
+    //     position: absolute;
+    //     top: 42%;
+    //     left: -30%;
+    //     width: 30%;
+    //     height: 6px;
+    //     transform: translate(-5px, 5px);
+    //     background-color: $dBrown;
+    // }
 }

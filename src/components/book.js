@@ -15,7 +15,7 @@ const Book = (props) => {
             <div className='book__pages'>
                 <div></div>
                 <div className='book__content'>
-                    <a href={`/explore/${dataType}/${data.dataset_id}`}> {data.name} </a> 
+                    <a href={`./explore/${dataType}/${data.dataset_id}`}> {data.name} </a> 
                 </div>
                 <div className='book__tag'></div>
                 <div></div>

@@ -33,7 +33,7 @@ class BarChart extends Component {
 
             padding: 0.3,
 
-            colors: 'nivo',
+            colors: theme.colorsRange,
 
             colorBy: 'id',
 
@@ -91,9 +91,10 @@ class BarChart extends Component {
             legends: [
                 {
                     dataFrom: 'keys',
-                    anchor: 'bottom-right',
-                    direction: 'column',
-                    translateX: 140,
+                    anchor: 'top',
+                    direction: 'row',
+                    translateX: 0,
+                    translateY: -40,
                     itemWidth: 120,
                     itemHeight: 20,
                     itemsSpacing: 2,

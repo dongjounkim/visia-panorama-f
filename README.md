@@ -12,15 +12,12 @@ Le code source de tout le développement se trouve dans le dossier src.
 
 Le code compilé (ou la production) se trouve dans le dossier build.
 
-### Mode Production
-
-...Pour l'instant le déploiement avec serveur Apache ne marche pas encore (enfin, j'ai pas trouvé la solution).
 
 ### Mode Développement (local)
 
 Installer NodeJS et NPM.
 
-Installer les dépendanceS.
+Installer les dépendances.
 
     $ (sudo) npm i -unsafe-perm
 
@@ -39,6 +36,23 @@ Lancer l'application en mode prod (pour l'instant)
     $ (sudo) npm i -g serve
 
     $ serve -s build
+
+Et voilà !
+
+### Mode Production (déploiment vers un serveur)
+
+
+Configurer l'url de l'API vers le back-office.
+
+    Dans ./src/utils/api.js, changer endpoint en '{link-to}/api'.
+
+Rebuild l'application pour la production
+
+    $ npm run build
+
+Créer dans le dossier www, un dossier histoires-autrices (www/histoires-autrices)
+
+Mettre tout le contenu du dossier build dans ce dossier.
 
 Et voilà !
 

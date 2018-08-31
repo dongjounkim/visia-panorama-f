@@ -34,10 +34,11 @@ $base-class: tabs;
         flex-direction: column;
         justify-content: center;
         transition: all ease-in-out 1.2s;
+        pointer-events: none;
 
         * {
             margin-bottom: 10px;
-            font-size: $base-font-size;
+            font-size: $base-font-size*1.5;
             line-height: $base-line-height;
         }
 
@@ -49,6 +50,7 @@ $base-class: tabs;
 
         &.active {
             opacity: 1;
+            pointer-events: all;
         }
     }
 
@@ -64,11 +66,12 @@ $base-class: tabs;
         &.#{$base-class}--active {
             &-start {
                 left: 0;
-                transform: translateX(0);
+                // transform: translateX(0);
             }
             &-end {
-                left: -50%;
-                transform: translateX(25%);
+                right: 0;
+                // left: 50%;
+                // transform: translateX(25%);
             }
         }
         

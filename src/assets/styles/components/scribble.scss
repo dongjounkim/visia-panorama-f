@@ -8,6 +8,27 @@ $base-class: scribble;
     left: 0;    
     width: 60%;
     height: 70%;
+    pointer-events: none;
+
+    &.#{$base-class}--1{
+        svg * path {
+            stroke: darken($skin, 10%);
+        }
+    }
+
+    &.#{$base-class}--2{
+        width: 100%;
+        height: 90%;
+        top: 50%;
+        left: 23%;
+        transform: translate(-50%, -50%) scale(0.9) rotate(20deg);
+        span {
+            text-align: center;
+        }
+        svg * path {
+            stroke: $skin;
+        }
+    }
 
     span {
         position: absolute;
@@ -27,7 +48,6 @@ $base-class: scribble;
                     fill-opacity: 0;
                   }
                   path {
-                    stroke: $dRed;
                     stroke-width: 0.5;
                     stroke-dasharray: 5000;
                     stroke-dashoffset: 5000;
@@ -44,7 +64,7 @@ $base-class: scribble;
             top: -30px;
             svg {
                 * {
-                    fill: darken($dBrown, 15%);
+                    fill: darken($lBrown, 10%);
                 }
                 opacity: 0;
                 filter: blur(0.2px);

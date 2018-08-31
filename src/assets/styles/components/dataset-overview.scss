@@ -1,0 +1,70 @@
+@import '../modules/base';
+
+$base-class: dataset-overview;
+
+.#{$base-class} {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 50px !important;
+
+    figure {
+        position: absolute;
+        top: 45%;
+        left: 30%;
+        width: 80%;
+        height: 80%;
+        transform: translate(-50%, -50%);
+        background-image: url('../../images/decor--3.svg');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    h1 {
+        position: relative;
+        z-index: 10;
+        font-size: $base-font-size*3.5;
+        font-family: $playfair;
+        font-weight: $bold;
+        text-transform: uppercase;
+        letter-spacing: 0.2px;
+        background-color: $white;
+        padding: 0 20px;
+        border: thin solid $dBrown;
+        max-width: 60%;
+    }
+
+    p {
+        position: relative;
+        z-index: 10;
+        padding: 15px;
+        margin-top: 30px;
+        font-size: $base-font-size*1.8;
+        font-family: $raleway;
+        letter-spacing: 0.2px;
+        text-align: justify;
+        color: $white;
+        width: 60%;
+        background-color: $dBrown;
+        
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     z-index: -1;
+        //     display: block;
+        //     top: 50%;
+        //     right: 0;
+        //     transform: translateY(-50%);
+        //     width: 100%;
+        //     height: 60%;
+        //     background-color: $dBrown;
+        // }
+    }
+}

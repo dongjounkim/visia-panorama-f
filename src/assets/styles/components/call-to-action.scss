@@ -1,0 +1,40 @@
+@import '../modules/base';
+
+$base-class: actions;
+
+.#{$base-class}  {
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: float 6s ease-in-out infinite;
+
+    li {
+        cursor: pointer;
+        animation: none;
+        width: 60%;
+        word-break: break-word;
+        padding: 40px;
+        margin-bottom: 100px;
+        text-align: center;
+        border: solid 7px $lBrown;
+        box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+        border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        filter: saturate(1);
+        transition: all ease-in-out 0.9s, border 0.5s;
+
+        &:hover {
+            filter: saturate(1.6);
+            transform: translateY(-20px);
+            border-width: 14px;
+            box-shadow: $card-shadow-hover;
+        }
+
+        *, a {
+            font-family: $playfair;
+            font-size: $base-font-size*1.8;
+        }
+    }
+}

@@ -24,10 +24,10 @@ class CallToAction extends Component {
   }
 
   render() {
-    return <ul className="action">
+    return <ul className="actions">
             {this.renderCalltoAction()}
             <li key={`call-to-action--add`}>
-            <a href='mailto:george-2e-texte@gmx.fr'>Proposez-nous vos propres idées !</a> 
+              <a href='mailto:george-2e-texte@gmx.fr'>Proposez-nous vos propres idées !</a> 
             </li>
           </ul>;
   }

@@ -9,6 +9,7 @@ import AuthorBio from '../../../../components/author-bio';
 import IndexList from '../../../../components/index-list';
 import Slider from '../../../../components/slider';
 import Menu from '../../../../components/menu';
+import LoadingScreen from '../../../../components/loading-screen';
 
 class AuthorContent extends Component {
 
@@ -16,6 +17,7 @@ class AuthorContent extends Component {
     super(props);
 
     this.state = {
+      appOK: false,
       author: {                
         id: 0,
         idBnf: '',
@@ -49,6 +51,7 @@ class AuthorContent extends Component {
                 works: a.works,
                 datasets: a.datasets
             },
+            appOK: true
         });
         return a.id_author;
        })
@@ -87,6 +90,7 @@ class AuthorContent extends Component {
     console.log(author);
     return (
       <main>
+        <LoadingScreen appOK={this.state.appOK} />
         <Menu />
         <section className="section">
           {/* <Header level={2} title={'L\'héroïne...'} subtitle={''} /> */}
@@ -104,7 +108,7 @@ class AuthorContent extends Component {
         </section>
 
         <section className="section">
-          <Header level={3} title={`...et les histoires auxquelles elle a donné vie.`} subtitle={`Plongez aussi dans ses œuvres de merveilles.`} />
+          <Header level={3} title={`...et les histoires auxquelles elle a donné vie.`} subtitle={`Plongez aussi dans ses œuvres sur Gallica.`} />
           <div className='content' style={{overflowX: 'scroll'}}>
             <IndexList dataType='authorWorks' data={author.works} />
           </div>

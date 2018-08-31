@@ -16,7 +16,13 @@ import { animateLetters1 } from './animations';
 
 class SplashScreen extends Component {
 
-  ref = React.createRef();
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+    this.state = {
+      splashScreenOK: false
+    }
+  }
 
   static defaultProps = {
     title: `Histoires d'Autrices`,
@@ -24,8 +30,11 @@ class SplashScreen extends Component {
   }
   
   componentDidMount() {
+  }
 
-    setTimeout(() => {
+  componentDidUpdate() {
+    // setTimeout(() => {
+    if (!this.state.splashScreenOK) {
       const screen = this.ref.current;
 
       let loremIpspum = screen.querySelector('.splash-screen__lorem-ipsum'),
@@ -44,10 +53,12 @@ class SplashScreen extends Component {
         charming(w);
         letters = w.querySelectorAll('span');
         animateLetters1(letters);
-      })
+      });
 
-    }, 500);
-
+      this.setState({splashScreenOK: true});
+      this.props.onRendered();
+    }
+    // }, 500);
   }
 
   render() {

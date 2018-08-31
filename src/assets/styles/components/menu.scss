@@ -105,9 +105,9 @@ $base-class: menu;
             transition-delay: 0s;
             transform: scaleY(.7) scaleX(.2);
         }
-        a{
+        a, ul {
             pointer-events: none;
-        }
+        } 
     }
 
     &.origin {

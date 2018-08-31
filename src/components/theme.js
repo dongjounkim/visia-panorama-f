@@ -13,6 +13,12 @@ const theme = {
         dBrown: 'rgb(204, 162, 105)',
     },
 
+    colorsRange: [
+        'rgb(209, 166, 124)', 
+        'rgb(241, 223, 209)', 
+        'rgb(216, 179, 154)'
+    ],
+
     defs: [
         {
             id: 'authorsF',
@@ -63,6 +69,7 @@ const theme = {
 
     fonts : {
         size: '0.9rem',
+        bigSize: '0.9rem*2'
     }
 };
 
