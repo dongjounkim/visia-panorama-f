@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const IndexListDefaultITem = (props) => {
     const {content, id, type} = props;
     return  <li className='index-list__default-item'> 
-                <a href={`./explore/${type}/${id}`}> {content} </a> 
+                <Link href={`explore/${type}/${id}`}> {content} </Link> 
             </li>;
 
 }

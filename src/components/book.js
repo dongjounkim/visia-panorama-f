@@ -1,5 +1,6 @@
 import React from 'react';
 import '../assets/styles/components/book.css'; 
+import {Link} from 'react-router-dom';
 
 const Book = (props) => {
     const {data, dataType} = props;
@@ -15,7 +16,7 @@ const Book = (props) => {
             <div className='book__pages'>
                 <div></div>
                 <div className='book__content'>
-                    <a href={`./explore/${dataType}/${data.dataset_id}`}> {data.name} </a> 
+                    <Link to={`explore/${dataType}/${data.dataset_id}`}> {data.name} </Link> 
                 </div>
                 <div className='book__tag'></div>
                 <div></div>

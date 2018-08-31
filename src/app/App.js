@@ -11,12 +11,12 @@ import Embark from '../containers/embark/embark';
 class App extends Component {
   render() {
     return (
-      <Router basename={'/histoires-autrices'}>
+      <Router basename={'histoires-autrices'}>
           <Switch>
-            <Route path={`/`} component={Embark} />
+            <Route exact path={`/`} component={Embark} />
 
             <Route exact path={`/explore/datasets`} component={DatasetIndex} />
-          <Route path={`/explore/datasets/:id`} component={DatasetContent} />
+            <Route path={`/explore/datasets/:id`} component={DatasetContent} />
 
             <Route exact path={`/explore/authors`} component={AuthorIndex} />
             <Route path={`/explore/authors/:id`} component={AuthorContent} />

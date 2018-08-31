@@ -1,5 +1,6 @@
 //Core
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 //Styles
 import '../assets/styles/components/menu.css';
@@ -54,17 +55,17 @@ class Menu extends Component {
         <header><span>×</span></header>
         <ul>
             <li className="menu__gritem">
-                <a href="./">Embarquement</a>
+                <Link to="/">Embarquement</Link>
                 <ul className="menu__sub">
-                    <li className="menu__item"><a href="./">une.</a></li>
-                    <li className="menu__item"><a href="./">préface.</a></li>
+                    <li className="menu__item"><Link to="/">une.</Link></li>
+                    <li className="menu__item"><Link to="/">préface.</Link></li>
                 </ul>
             </li>
             <li className="menu__gritem">
-                <a href="./explore">Exploration</a>
+                <Link to="/explore/datasets">Exploration</Link>
                 <ul className="menu__sub">
-                    <li className="menu__item"><a href="./explore/datasets">aventures.</a></li>
-                    <li className="menu__item"><a href="./explore/authors">héroines.</a></li>
+                    <li className="menu__item"><Link to="/explore/datasets">aventures.</Link></li>
+                    <li className="menu__item"><Link to="/explore/authors">héroines.</Link></li>
                 </ul>
             </li>
         </ul>

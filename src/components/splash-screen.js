@@ -39,8 +39,13 @@ class SplashScreen extends Component {
 
       let loremIpspum = screen.querySelector('.splash-screen__lorem-ipsum'),
           svg = loremIpspum.querySelector('svg'),
-          warp = new Warp(svg);
+          warp;
 
+      while (!svg) {
+        svg = loremIpspum.querySelector('svg');
+      }
+
+      warp = new Warp(svg);
       warp.interpolate(4);
       warp.transform(([ x, y ]) => [ x, y + 4 * Math.sin(x / 16), x + 10 * Math.sin(y/8), y + 2 * Math.sin(x / 16) ]);
       loremIpspum.classList.contains('hidden') && loremIpspum.classList.remove('hidden');

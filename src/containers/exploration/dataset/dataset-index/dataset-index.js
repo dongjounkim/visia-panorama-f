@@ -7,6 +7,7 @@ import Toolbar from '../../../../components/toolbar';
 import IndexList from '../../../../components/index-list';
 import Menu from '../../../../components/menu';
 import LoadingScreen from '../../../../components/loading-screen';
+import { withRouter } from 'react-router-dom';
 
 class DatasetIndex extends Component {
 
@@ -64,4 +65,4 @@ class DatasetIndex extends Component {
   }
 }
 
-export default DatasetIndex;
+export default withRouter(DatasetIndex);

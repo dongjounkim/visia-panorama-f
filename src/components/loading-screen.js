@@ -32,6 +32,7 @@ class LoadingScreen extends Component {
     if (this.props.appOK) {
       const screen = this.ref.current;
       screen.classList.add('on-page-ready');
+      window.scrollTo(0, 0);
     }
   }
 
